@@ -15,12 +15,12 @@ int main(void)
 		{
 			putchar('0' + i);
 			putchar('0' + j);
-		}
 
-		if (n != 9)
-		{
-			putchar(',');
-			putchar(' ');
+			if (i != 8)
+			{
+				putchar(',');
+				putchar(' ');
+			}
 		}
 	}
 	putchar('\n');
