@@ -9,12 +9,12 @@
 int main(void)
 {
 	int i;
-	unsigned int a = 1, b = 2;
+	unsigned long a = 1, b = 2;
 	unsigned long sum = 0;
 
 	for (i = 0; a < 4000000; i++)
 	{
-		int tmp;
+		unsigned long tmp;
 
 		tmp = a;
 		a = b;
