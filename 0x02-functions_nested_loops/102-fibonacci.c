@@ -54,7 +54,7 @@ int main(void)
 		a1 = b1;
 		a2 = b2;
 
-		b2 = tmp2 + ((b1 + tmp1) / BASE);
+		b2 = b2 + tmp2 + ((b1 + tmp1) / BASE);
 		b1 = (b1 + tmp1) % BASE;
 
 		if (i == 49)
