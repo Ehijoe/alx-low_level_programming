@@ -25,7 +25,7 @@ void print2num(unsigned long a, unsigned long b)
 
 	printf("%lu", a);
 
-	digits = 9 - digits;
+	digits = 8 - digits;
 	for (i = 0; i < digits; i++)
 	{
 		printf("0");
