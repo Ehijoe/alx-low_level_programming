@@ -15,7 +15,7 @@ int main(void)
 	{
 		int tmp;
 
-		printf("%d", a);
+		printf("%lld", a);
 		tmp = a;
 		a = b;
 		b += tmp;
