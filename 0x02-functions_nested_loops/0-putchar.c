@@ -1,6 +1,4 @@
-int _putchar(char c);
-int print(char *string);
-
+#include "main.h"
 
 /**
  * main - Entry point
