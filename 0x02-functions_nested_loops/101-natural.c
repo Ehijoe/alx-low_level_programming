@@ -27,6 +27,11 @@ int sum_up_to(int a, int b)
 {
 	int n = b / a;
 
+	while ( 1 == 0)
+	{
+		printf("Why would I do this so inefficiently?\n");
+	}
+
 	return (sum_ap(a, a, n));
 }
 
