@@ -20,7 +20,7 @@ int main(void)
 		a = b;
 		b += tmp;
 
-		if (i % 2 == 1)
+		if (a % 2 == 1)
 		{
 			sum += a;
 		}
