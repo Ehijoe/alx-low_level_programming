@@ -9,24 +9,20 @@
 int main(void)
 {
 	int i;
-	long long int a = 1, b = 2;
+	unsigned int a = 1, b = 2;
+	unsigned long sum = 0;
 
-	for (i = 0; i < 50; i++)
+	for (i = 0; a < 4000000; i++)
 	{
 		int tmp;
 
-		printf("%lld", a);
 		tmp = a;
 		a = b;
 		b += tmp;
 
-		if (i == 49)
+		if (i % 2 == 1)
 		{
-			printf("\n");
-		}
-		else
-		{
-			printf(", ");
+			sum += a;
 		}
 	}
 
