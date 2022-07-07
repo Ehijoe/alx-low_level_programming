@@ -24,7 +24,7 @@ void _print_number_helper(int n)
 }
 
 /**
- * _print_number_helper - Prints a number to stdout
+ * print_number - Prints a number to stdout
  * @n: The number to print
  */
 void print_number(int n)
