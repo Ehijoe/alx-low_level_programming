@@ -36,7 +36,10 @@ int main(void)
 	long int comp = 612852475143 / 4019;
 	int i, max_prime = 1;
 
-	for (i = 1; i < 1000000; i++)
+	while (comp % 3 == 0)
+		comp /= 3;
+
+	for (i = 1; i < comp; i++)
 	{
 		if (comp % i == 0)
 		{
