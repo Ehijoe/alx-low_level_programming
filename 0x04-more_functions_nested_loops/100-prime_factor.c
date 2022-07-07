@@ -47,6 +47,13 @@ int main(void)
 		}
 	}
 
-	printf("%d\n", max_prime);
+	if (max_prime == 1)
+	{
+		printf("%ld\n", comp);
+	}
+	else
+	{
+		printf("%d\n", max_prime);
+	}
 	return (0);
 }
