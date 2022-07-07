@@ -33,7 +33,7 @@ int is_prime(int n)
  */
 int main(void)
 {
-	long int comp = 612852475143;
+	long int comp = 612852475143 / 4019;
 	int i, max_prime = 1;
 
 	for (i = 1; i < 1000000; i++)
