@@ -24,7 +24,7 @@ int is_word_sep(char c)
 	case '{':
 	case '}':
 		return (1);
-	case default:
+	default:
 		return (0);
 	}
 }
