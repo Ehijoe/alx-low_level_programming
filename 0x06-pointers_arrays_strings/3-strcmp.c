@@ -2,10 +2,12 @@
 
 /**
  * _strcmp - Compares two strings
- * @s1
- * @s2
+ * @s1: First string
+ * @s2: Second string
  *
- * Return: 0 if they are the same negative if s1 is smaller and postitive otherwise
+ * Return: 0 if they are the same
+ *         negative if s1 is smaller
+ *         and postitive otherwise
  */
 int _strcmp(char *s1, char *s2)
 {
