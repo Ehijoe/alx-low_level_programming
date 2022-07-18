@@ -2,7 +2,7 @@
 
 /**
  * print_chessboard - Prints a chessboard
- * @board: An array telling the positions of the pieces
+ * @a: An array telling the positions of the pieces
  */
 void print_chessboard(char (*a)[8])
 {
