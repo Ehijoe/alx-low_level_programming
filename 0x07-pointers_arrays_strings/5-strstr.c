@@ -38,7 +38,7 @@ char *_strstr(char *haystack, char *needle)
 		i++;
 	}
 
-	if (haystack[i] == needle[i])
+	if (haystack[i] == needle[j])
 	{
 		return (substring);
 	}
