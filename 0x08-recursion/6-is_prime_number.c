@@ -31,5 +31,9 @@ int check_prime(int n, int a)
  */
 int is_prime_number(int n)
 {
+	if (n < 2)
+	{
+		return (0);
+	}
 	return (check_prime(n, 2));
 }
