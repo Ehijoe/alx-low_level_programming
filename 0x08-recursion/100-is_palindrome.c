@@ -33,7 +33,7 @@ int check_palindrome(char *start, char *end)
 	}
 	else
 	{
-		return (check_palindrome(start + 1, end - 1) || (*start == *end));
+		return (check_palindrome(start + 1, end - 1) && (*start == *end));
 	}
 }
 
