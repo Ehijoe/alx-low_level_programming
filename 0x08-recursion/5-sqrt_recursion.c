@@ -5,7 +5,7 @@
  * @n: Number whose square root to find
  * @a: Number to try as a square root
  *
- * Returns: The square root of n or -1 if it isn't natural
+ * Return: The square root of n or -1 if it isn't natural
  */
 int sqrt_check(int n, int a)
 {
