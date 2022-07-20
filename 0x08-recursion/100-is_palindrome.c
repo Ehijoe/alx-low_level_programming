@@ -27,7 +27,7 @@ char *string_end(char *s)
  */
 int check_palindrome(char *start, char *end)
 {
-	if ((end - start) <= 1)
+	if ((end - start) < 1)
 	{
 		return (1);
 	}
