@@ -15,6 +15,7 @@ int main(int argc, char **argv)
 	int cents;
 	int i;
 	int coin_types[] = {25, 10, 5, 2, 1};
+	char *arg;
 
 	if (argc != 2)
 	{
@@ -22,6 +23,15 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
+	arg = argv[1];
+	while (*arg != '\0')
+	{
+		if (!is_digit(*arg))
+		{
+			puts("Error");
+			return (1);
+		}
+	}
 	cents = atoi(argv[1]);
 
 	for (i = 0; i < 5; i++)
