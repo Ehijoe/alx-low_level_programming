@@ -2,29 +2,6 @@
 #include <stddef.h>
 
 /**
- * contains - Check if a character is in a string
- * @s: String to check
- * @c: Character to look for
- *
- * Return: 1 if c is found and 0 otherwise.
- */
-int contains(char *s, char c)
-{
-	char *ptr = s;
-
-	while (*ptr != '\0')
-	{
-		if (*ptr == c)
-		{
-			return (1);
-		}
-		ptr++;
-	}
-
-	return (0);
-}
-
-/**
  * _strpbrk - Finds the first occurence of a character in a string
  * @s: String to search
  * @accept: String of characters to find
@@ -35,14 +12,37 @@ int contains(char *s, char c)
 char *_strpbrk(char *s, char *accept)
 {
 	char *ptr = s;
+    char *tmp = ptr;
+    int contains = 0;
 
-	while (!contains(accept, *ptr))
+	while (*tmp != '\0')
+	{
+		if (*tmp == *ptr)
+		{
+			contains = 1;
+		}
+		tmp++;
+	}
+
+	while (!contains)
 	{
 		if (*ptr == '\0')
 		{
 			return (NULL);
 		}
 		ptr++;
+
+        contains = 0;
+        tmp = ptr;
+
+        while (*tmp != '\0')
+        {
+            if (*tmp == *ptr)
+            {
+                contains = 1;
+            }
+            tmp++;
+        }
 	}
 
 	return (ptr);
