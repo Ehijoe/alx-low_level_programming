@@ -30,4 +30,6 @@ int main(int argc, char **argv)
 		cents %= coin_types[i];
 	}
 	printf("%d\n", coins);
+
+	return (0);
 }
