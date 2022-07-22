@@ -36,6 +36,12 @@ int main(int argc, char **argv)
 	}
 	cents = atoi(argv[1]);
 
+	if (cents < 0)
+	{
+		puts("0");
+		return (0);
+	}
+
 	for (i = 0; i < 5; i++)
 	{
 		coins += cents / coin_types[i];
