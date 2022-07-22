@@ -25,6 +25,8 @@ int main(int argc, char **argv)
 	}
 
 	arg = argv[1];
+	if (*arg == '-')
+		arg++;
 	while (*arg != '\0')
 	{
 		if (!isdigit(*arg))
