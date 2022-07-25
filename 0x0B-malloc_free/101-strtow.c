@@ -92,7 +92,8 @@ char **strtow(char *str)
 		{
 			words[i][k] = str[j++];
 		}
-		words[wordlen] = '\0';
+		words[i][wordlen] = '\0';
 	}
+	words[i] = NULL;
 	return (words);
 }
