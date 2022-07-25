@@ -32,7 +32,7 @@ int _strlen(char *s)
  */
 char *argstostr(int ac, char **av)
 {
-	unsigned int i, length, count;
+	int i, length, count;
 	char *result;
 
 	if (ac < 1 || av == NULL)
