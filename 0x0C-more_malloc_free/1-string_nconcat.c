@@ -24,14 +24,14 @@ int _strlen(char *s)
 }
 
 /**
- * str_nconcat - Concatenate two strings
+ * string_nconcat - Concatenate two strings
  * @s1: Starting string
  * @s2: Ending string
  * @n: Number of chars in s2 to concatenate
  *
  * Return: The concatenated string
  */
-char *str_nconcat(char *s1, char *s2, unsigned int n)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	unsigned int i;
 	unsigned int size, size1, size2;
