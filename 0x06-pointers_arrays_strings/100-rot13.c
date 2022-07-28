@@ -8,7 +8,7 @@
  */
 char *rot13(char *s)
 {
-	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char alpha[] =  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char cipher[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYXABCDEFGHIJKLM";
 	int i, j;
 
