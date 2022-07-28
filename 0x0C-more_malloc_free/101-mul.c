@@ -68,22 +68,22 @@ void printnum(longnum n)
 	if (n.num[0] != 0)
 	{
 		started = 1;
-		print_uint(n.num[0], n.len % BASE_DIGITS);
+		print_uint(n.num[0], n.len % BASE_DIGS);
 	}
-	for (i = BASE_DIGITS + (n.len % BASE_DIGITS); i <= n.len; i += BASE_DIGITS)
+	for (i = BASE_DIGS + (n.len % BASE_DIGS); i <= n.len; i += BASE_DIGS)
 	{
-		if (!started && n.num[i / BASE_DIGITS] == 0)
+		if (!started && n.num[i / BASE_DIGS] == 0)
 		{
 			continue;
 		}
 		else if (!started)
 		{
 			started = 1;
-			print_start(n.num[i / BASE_DIGITS]);
+			print_start(n.num[i / BASE_DIGS]);
 		}
 		else
 		{
-			print_uint(n.num[i / BASE_DIGITS], BASE_DIGITS);
+			print_uint(n.num[i / BASE_DIGS], BASE_DIGS);
 		}
 	}
 }
@@ -117,18 +117,18 @@ longnum readnum(char *s)
 	longnum result;
 
 	result.len = _strlen(s);
-	result.size = (result.len / BASE_DIGITS) + 1;
+	result.size = (result.len / BASE_DIGS) + 1;
 	result.num = malloc(sizeof(unsigned int) * result.size);
 	if (result.num == NULL)
 	{
 		print("Error: Could not allocate memory!\n");
 		exit(1);
 	}
-	i = result.len % BASE_DIGITS;
+	i = result.len % BASE_DIGS;
 	result.num[0] = unsigned_atoi(s, i);
-	for (i += BASE_DIGITS; i <= result.len; i += BASE_DIGITS)
+	for (i += BASE_DIGS; i <= result.len; i += BASE_DIGS)
 	{
-		result.num[i / BASE_DIGITS] = unsigned_atoi(s + i - BASE_DIGITS, BASE_DIGITS);
+		result.num[i / BASE_DIGS] = unsigned_atoi(s + i - BASE_DIGS, BASE_DIGS);
 	}
 
 	return (result);
