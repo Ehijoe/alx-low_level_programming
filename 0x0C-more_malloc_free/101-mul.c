@@ -3,7 +3,7 @@
 #include <limits.h>
 
 #define BASE 1000000
-#define BASE_DIGITS 6
+#define BASE_DIGS 6
 
 /**
  * mulnum - Multiply two longnums
@@ -17,8 +17,8 @@ longnum mulnum(longnum a, longnum b)
 	longnum ans;
 	unsigned int i, j;
 
-	ans.len = a.len + b.len + 2 * BASE_DIGITS;
-	ans.size = (ans.len / BASE_DIGITS) + 1;
+	ans.len = a.len + b.len + 2 * BASE_DIGS;
+	ans.size = (ans.len / BASE_DIGS) + 1;
 	ans.num = malloc(sizeof(unsigned int) * ans.size);
 	if (ans.num == NULL)
 	{
