@@ -11,7 +11,7 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned long long int mem_size = nmemb * size;
+	unsigned long int mem_size = nmemb * size;
 
 	if (nmemb == 0 || size == 0)
 	{
