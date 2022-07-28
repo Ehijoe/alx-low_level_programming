@@ -10,9 +10,11 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
+	unsigned long long int mem_size = nmemb * size;
+
 	if (nmemb == 0 || size == 0)
 	{
 		return (NULL);
 	}
-	return (malloc(nmemb * size));
+	return (malloc(mem_size));
 }
