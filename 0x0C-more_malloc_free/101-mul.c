@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <limits.h>
 
-#define BASE 100000
-#define BASE_DIGS 5
+#define BASE 10
+#define BASE_DIGS 1
 
 /**
  * carry_over - Carry over excess to make a longnum valid
