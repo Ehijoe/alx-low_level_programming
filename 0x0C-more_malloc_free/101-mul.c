@@ -2,8 +2,23 @@
 #include <stdlib.h>
 #include <limits.h>
 
-#define BASE 1000000
-#define BASE_DIGS 6
+#define BASE 100000
+#define BASE_DIGS 5
+
+/**
+ * carry_over - Carry over excess to make a longnum valid
+ * @a: longnum to correct
+ */
+void carry_over(longnum a)
+{
+	unsigned int i;
+
+	for (i = a.size - 1; i >= 1; i--)
+	{
+		a.num[i - 1] += a.num[i] / BASE;
+		a.num[i] %= BASE;
+	}
+}
 
 /**
  * mulnum - Multiply two longnums
@@ -38,6 +53,7 @@ longnum mulnum(longnum a, longnum b)
 
 			ans.num[ans.size - i - j - 1] += mul % BASE;
 			ans.num[ans.size - i - j - 2] += mul / BASE;
+			carry_over(ans);
 		}
 	}
 

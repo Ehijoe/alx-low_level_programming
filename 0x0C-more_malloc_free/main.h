@@ -35,5 +35,6 @@ void printnum(longnum n);
 unsigned int modulo(unsigned int a, unsigned int b);
 longnum mulnum(longnum a, longnum b);
 void print_start(unsigned int a);
+void carry_over(longnum a);
 
 #endif
