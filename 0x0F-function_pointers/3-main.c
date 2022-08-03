@@ -16,12 +16,7 @@ int main(int argc, char **argv)
 	if (argc != 4)
 	{
 		puts("Error");
-		return (98);
-	}
-	if (get_op_func(argv[2]) == NULL)
-	{
-		puts("Error");
-		return (98);
+		exit(98);
 	}
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
