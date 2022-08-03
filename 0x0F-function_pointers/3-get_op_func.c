@@ -20,12 +20,10 @@ int (*get_op_func(char *s))(int, int)
 		{NULL, NULL}
 	};
 	char *operators = "+-*/%";
-	char *found_op;
 
-	found_op = strstr(operators, s);
-	if (found_op == NULL)
+	if (strstr(operators, s) == NULL)
 	{
 		return (NULL);
 	}
-	return (ops[found_op - operators].f);
+	return (ops[strstr(operators, s) - operators].f);
 }
