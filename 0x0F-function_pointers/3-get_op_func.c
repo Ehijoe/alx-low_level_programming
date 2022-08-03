@@ -19,15 +19,14 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
-	int i;
+	char *operators = "+-*/%";
+	char *found_op;
 
-	for (i = 0; ops[i].op != NULL; i++)
+	found_op = strstr(operators, s);
+	if (found_op == NULL)
 	{
-		if (strcmp(ops[i].op, s) == 0)
-		{
-			return (ops[i].f);
-		}
+		puts("Error");
+		exit(99);
 	}
-	puts("Error");
-	exit(99);
+	return (ops[found_op - operators].f);
 }
