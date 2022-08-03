@@ -15,7 +15,7 @@ typedef int op_func_t(int, int);
 typedef struct op
 {
 	char *op;
-	op_func_t *f;
+	int (*f)(int a, int b);
 } op_t;
 
 op_func_t op_add;
