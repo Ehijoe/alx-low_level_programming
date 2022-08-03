@@ -25,8 +25,7 @@ int (*get_op_func(char *s))(int, int)
 	found_op = strstr(operators, s);
 	if (found_op == NULL)
 	{
-		puts("Error");
-		exit(99);
+		return (NULL);
 	}
 	return (ops[found_op - operators].f);
 }

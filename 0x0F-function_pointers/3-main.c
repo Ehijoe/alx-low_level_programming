@@ -18,6 +18,11 @@ int main(int argc, char **argv)
 		puts("Error");
 		exit(98);
 	}
+	if (get_op_func(argv[2]) == NULL)
+	{
+		puts("Error");
+		exit(99);
+	}
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
 	c = (get_op_func(argv[2]))(a, b);
