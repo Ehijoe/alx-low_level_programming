@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 
 	for (i = 0; i < bytes; i++)
 	{
-		printf("%x", main_char[i]);
+		printf("%02x", main_char[i]);
 		if (i == bytes - 1)
 		{
 			printf("\n");
