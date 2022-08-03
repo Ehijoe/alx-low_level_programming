@@ -12,7 +12,6 @@
 int main(int argc, char **argv)
 {
 	int a, b, c;
-	op_func_t f;
 
 	if (argc != 4)
 	{
