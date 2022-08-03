@@ -2,11 +2,6 @@
 #define CALC_H
 
 /**
- * op_func_t - A typedef for the operator functions
- */
-typedef int op_func_t(int, int);
-
-/**
  * struct op - Struct op
  *
  * @op: The operator
@@ -17,6 +12,11 @@ typedef struct op
 	char *op;
 	int (*f)(int a, int b);
 } op_t;
+
+/**
+ * op_func_t - A typedef for the operator functions
+ */
+typedef int op_func_t(int, int);
 
 op_func_t op_add;
 op_func_t op_sub;
