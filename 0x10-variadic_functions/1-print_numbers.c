@@ -1,5 +1,7 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
+#include <stddef.h>
+#include <stdio.h>
 
 /**
  * print_num - Prints a number in base 10
@@ -11,11 +13,12 @@ void print_num(int n)
 
 	if (n < 0)
 	{
-		a = -n;
+		a = 0 - n;
+		_putchar('-');
 		print_num(a);
 		return;
 	}
-	if (n > 10)
+	if (n >= 10)
 	{
 		print_num(n / 10);
 	}
@@ -26,7 +29,7 @@ void print_num(int n)
  * print - Prints a string to the standard output
  * @s: The string to print
  */
-void print(char *s)
+void print(const char *s)
 {
 	int i;
 
