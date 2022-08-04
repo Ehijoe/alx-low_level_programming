@@ -1,11 +1,12 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
+#include <stddef.h>
 
 /**
  * print - Prints a string to the standard output
  * @s: The string to print
  */
-void print(char *s)
+void print(const char *s)
 {
 	int i;
 
