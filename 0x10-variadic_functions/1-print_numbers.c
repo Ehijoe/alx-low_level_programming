@@ -1,7 +1,6 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stddef.h>
-#include <stdio.h>
 
 /**
  * print_num - Prints a number in base 10
@@ -53,6 +52,10 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_list arg_list;
 	unsigned int i;
 
+	if (n == 0)
+	{
+		return;
+	}
 	va_start(arg_list, n);
 	for (i = 0; i < n; i++)
 	{
