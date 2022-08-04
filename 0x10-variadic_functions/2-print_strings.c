@@ -30,6 +30,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list arg_list;
 	unsigned int i;
+	const char *sep = (separator) ? separator : "";
 
 	va_start(arg_list, n);
 	for (i = 0; i < n; i++)
@@ -41,7 +42,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		}
 		else
 		{
-			print(separator);
+			print(sep);
 		}
 	}
 	va_end(arg_list);
