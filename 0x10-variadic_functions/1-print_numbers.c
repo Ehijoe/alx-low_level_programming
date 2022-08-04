@@ -1,6 +1,7 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stddef.h>
+#include <stdio.h>
 
 /**
  * print_num - Prints a number in base 10
@@ -8,20 +9,7 @@
  */
 void print_num(int n)
 {
-	unsigned int a;
-
-	if (n < 0)
-	{
-		a = 0 - n;
-		_putchar('-');
-		print_num(a);
-		return;
-	}
-	if (n >= 10)
-	{
-		print_num(n / 10);
-	}
-	_putchar('0' + (n % 10));
+	printf("%d", n);
 }
 
 /**
@@ -30,16 +18,11 @@ void print_num(int n)
  */
 void print(const char *s)
 {
-	int i;
-
 	if (s == NULL)
 	{
 		return;
 	}
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		_putchar(s[i]);
-	}
+	printf("%s", s);
 }
 
 /**
@@ -62,7 +45,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		print_num(va_arg(arg_list, int));
 		if (i == n - 1)
 		{
-			_putchar('\n');
+			printf("\n");
 		}
 		else
 		{
