@@ -12,7 +12,7 @@ void print_all(const char * const format, ...)
 	int i = 0;
 	char *s;
 
-	if (format == NULL)
+	while (format == NULL)
 		return;
 	va_start(args, format);
 	while (format[i] != '\0')
