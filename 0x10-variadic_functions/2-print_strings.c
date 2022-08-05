@@ -36,7 +36,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	for (i = 0; i < n; i++)
 	{
 		print(va_arg(arg_list, char *));
-		if (i == n - 1)
+		if (i != n - 1)
 		{
 			print(sep);
 		}
