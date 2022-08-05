@@ -38,12 +38,9 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		print(va_arg(arg_list, char *));
 		if (i == n - 1)
 		{
-			_putchar('\n');
-		}
-		else
-		{
 			print(sep);
 		}
 	}
 	va_end(arg_list);
+	_putchar('\n');
 }
