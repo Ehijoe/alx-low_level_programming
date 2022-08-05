@@ -10,6 +10,6 @@
  */
 int main(void)
 {
-    print_strings(NULL, 3, "Jay", "Django", "yuj689iyhg");
+    print_all(NULL, 3, "Jay", "Django", "yuj689iyhg");
     return (0);
 }
