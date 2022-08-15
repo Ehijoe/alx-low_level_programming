@@ -5,10 +5,12 @@
  * @head: A pointer to the list
  * @idx: Index to insert at
  * @n: The number to insert into the list
+ *
+ * Return: A pointer to the inserted node or NULL on failure
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	int i;
+	unsigned int i;
 	listint_t *before;
 	listint_t *new;
 
