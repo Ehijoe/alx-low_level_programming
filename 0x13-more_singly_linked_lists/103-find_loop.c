@@ -4,9 +4,6 @@ listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *slow;
 	listint_t *fast;
-	listint_t *limit;
-	int c;
-	int i;
 
 	slow = head;
 	if (slow == NULL)
@@ -24,22 +21,12 @@ listint_t *find_listint_loop(listint_t *head)
 		fast = fast->next->next;
 	}
 
-	fast = slow->next;
-	for (c = 1; fast != slow; c++)
-		fast = fast->next;
-
-	limit = slow->next;
-	slow = head;
-	fast = head;
-	while (slow != limit)
+	if (slow->next == head)
 	{
-		for (i = 0; i < c; i++)
-		{
-			fast = fast->next;
-		}
-		if (slow == fast)
-			return (slow);
-		slow = slow->next;
-		fast = slow;
+		return (head);
+	}
+	else
+	{
+		return (find_listint_loop(head->next));
 	}
 }
