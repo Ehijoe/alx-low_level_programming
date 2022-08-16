@@ -52,7 +52,7 @@ size_t print_listint_safe(const listint_t *head)
 	size_t len = 0;
 
 	if (head == NULL)
-		return 0;
+		return (0);
 	first_node = *head;
 	loop_start = my_find_listint_loop(&first_node);
 	if (loop_start == NULL)
