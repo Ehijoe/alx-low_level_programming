@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * my_find_listint_loop - Find the first node in a linked list to form a cycle
+ * my_find_listint_loop2 - Find the first node in a linked list to form a cycle
  * @head: A pointer to the first node of the linked list
  *
  * Return: A pointer to the first node of the cycle or NULL if there is none

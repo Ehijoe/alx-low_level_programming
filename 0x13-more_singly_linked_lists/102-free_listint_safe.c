@@ -51,7 +51,7 @@ size_t free_list_section(listint_t *start, listint_t *end, int looped)
 	int freed, loop = looped;
 
 	if (start == NULL)
-		return 0;
+		return (0);
 	if (start->next == end)
 	{
 		if (looped)
@@ -68,7 +68,7 @@ size_t free_list_section(listint_t *start, listint_t *end, int looped)
 
 /**
  * free_listint_safe - Frees a list which may have a loop
- * @head: A pointer to the first element of the linked list
+ * @h: A pointer to the linked list
  *
  * Return: The number of elements printed
  */
