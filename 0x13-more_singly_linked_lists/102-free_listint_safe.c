@@ -81,12 +81,15 @@ size_t free_listint_safe(listint_t **h)
 
 	if (h == NULL)
 		return (0);
-	first_node = *h;
+	if (*h == NULL)
+		return (0);
+	first_node = **h;
 	loop_start = my_find_listint_loop(&first_node);
 	if (loop_start == NULL)
 		in_loop = 1;
 
 	freed = free_list_section(*h, loop_start, in_loop);
+	*h = NULL;
 
 	return (freed);
 }
