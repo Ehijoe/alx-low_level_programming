@@ -34,7 +34,7 @@ listint_t *my_find_listint_loop(listint_t *head)
 	}
 	else
 	{
-		return (find_listint_loop(head->next));
+		return (my_find_listint_loop(head->next));
 	}
 }
 
@@ -52,7 +52,7 @@ size_t print_listint_safe(const listint_t *head)
 	size_t len = 0;
 
 	first_node = *head;
-	loop_start = find_listint_loop(&first_node);
+	loop_start = my_find_listint_loop(&first_node);
 	if (loop_start == NULL)
 		in_loop = 1;
 
@@ -60,13 +60,13 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		if (head == loop_start)
 			in_loop = 1;
-		printf("[%p] %d\n", head, head->n);
+		printf("[%p] %d\n", (void *)head, head->n);
 		head = head->next;
 		len++;
 	}
 	if (loop_start != NULL)
 	{
-		printf("-> [%p] %d\n", loop_start, loop_start->n);
+		printf("-> [%p] %d\n", (void *)loop_start, loop_start->n);
 		exit(98);
 	}
 
