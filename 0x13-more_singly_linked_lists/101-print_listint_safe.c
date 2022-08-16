@@ -7,7 +7,7 @@
  *
  * Return: A pointer to the first node of the cycle or NULL if there is none
  */
-listint_t *find_listint_loop(listint_t *head)
+listint_t *my_find_listint_loop(listint_t *head)
 {
 	listint_t *slow;
 	listint_t *fast;
@@ -48,25 +48,25 @@ size_t print_listint_safe(const listint_t *head)
 {
 	int in_loop = 0;
 	listint_t *loop_start;
-	listint_t *curr;
+	listint_t first_node;
 	size_t len = 0;
 
-	loop_start = find_listint_loop(head);
+	first_node = *head;
+	loop_start = find_listint_loop(&first_node);
 	if (loop_start == NULL)
 		in_loop = 1;
 
-	curr = head;
-	while (curr != loop_start || (!in_loop))
+	while (head != loop_start || (!in_loop))
 	{
-		if (curr == loop_start)
+		if (head == loop_start)
 			in_loop = 1;
-		printf("[%p] %d\n", curr, curr->n);
-		curr = curr->next;
+		printf("[%p] %d\n", head, head->n);
+		head = head->next;
 		len++;
 	}
 	if (loop_start != NULL)
 	{
-		printf("-> [%p] %d\n");
+		printf("-> [%p] %d\n", loop_start, loop_start->n);
 		exit(98);
 	}
 
