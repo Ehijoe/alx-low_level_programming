@@ -1,0 +1,74 @@
+#include "lists.h"
+#include <stdio.h>
+
+/**
+ * find_listint_loop - Find the first node in a linked list to form a cycle
+ * @head: A pointer to the first node of the linked list
+ *
+ * Return: A pointer to the first node of the cycle or NULL if there is none
+ */
+listint_t *find_listint_loop(listint_t *head)
+{
+	listint_t *slow;
+	listint_t *fast;
+
+	slow = head;
+	if (slow == NULL)
+		return (NULL);
+	fast = slow->next;
+	if (fast == NULL)
+		return (NULL);
+	while (slow != fast)
+	{
+		if (slow == NULL || fast == NULL)
+			return (NULL);
+		if (fast->next == NULL)
+			return (NULL);
+		slow = slow->next;
+		fast = fast->next->next;
+	}
+
+	if (slow->next == head)
+	{
+		return (head);
+	}
+	else
+	{
+		return (find_listint_loop(head->next));
+	}
+}
+
+/**
+ * print_listint_safe - Prints each element of a linked list exactly once
+ * @head: A pointer to the first element of the linked list
+ *
+ * Return: The number of elements printed
+ */
+size_t print_listint_safe(const listint_t *head)
+{
+	int in_loop = 0;
+	listint_t *loop_start;
+	listint_t *curr;
+	size_t len = 0;
+
+	loop_start = find_listint_loop(head);
+	if (loop_start == NULL)
+		in_loop = 1;
+
+	curr = head;
+	while (curr != loop_start || (!in_loop))
+	{
+		if (curr == loop_start)
+			in_loop = 1;
+		printf("[%p] %d\n", curr, curr->n);
+		curr = curr->next;
+		len++;
+	}
+	if (loop_start != NULL)
+	{
+		printf("-> [%p] %d\n");
+		exit(98);
+	}
+
+	return (len);
+}
