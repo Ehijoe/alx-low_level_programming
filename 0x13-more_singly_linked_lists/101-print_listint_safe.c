@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * find_listint_loop - Find the first node in a linked list to form a cycle
+ * my_find_listint_loop - Find the first node in a linked list to form a cycle
  * @head: A pointer to the first node of the linked list
  *
  * Return: A pointer to the first node of the cycle or NULL if there is none
@@ -51,6 +51,8 @@ size_t print_listint_safe(const listint_t *head)
 	listint_t first_node;
 	size_t len = 0;
 
+	if (head == NULL)
+		return 0;
 	first_node = *head;
 	loop_start = my_find_listint_loop(&first_node);
 	if (loop_start == NULL)
