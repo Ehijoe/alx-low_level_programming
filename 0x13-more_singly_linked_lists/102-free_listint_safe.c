@@ -51,7 +51,7 @@ size_t free_list_section(listint_t *start, listint_t *end)
 
 	if (start == NULL)
 		return (0);
-	if (start->next == end)
+	if (start == end)
 	{
 		free(start);
 		return (1);
