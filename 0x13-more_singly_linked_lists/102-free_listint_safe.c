@@ -46,22 +46,18 @@ listint_t *my_find_listint_loop(listint_t *head)
  *
  * Return: The number of nodes freed
  */
-size_t free_list_section(listint_t *start, listint_t *end, int looped)
+size_t free_list_section(listint_t *start, listint_t *end)
 {
-	int freed, loop = looped;
+	int freed;
 
 	if (start == NULL)
 		return (0);
 	if (start->next == end)
 	{
-		if (looped)
-		{
-			free(start);
-			return (1);
-		}
-		loop = 1;
+	       	free(start);
+       		return (1);
 	}
-	freed = (1 + free_list_section(start->next, end, loop));
+	freed = (1 + free_list_section(start->next, end));
 	free(start);
 	return (freed);
 }
@@ -74,7 +70,6 @@ size_t free_list_section(listint_t *start, listint_t *end, int looped)
  */
 size_t free_listint_safe(listint_t **h)
 {
-	int in_loop = 0;
 	listint_t *loop_start;
 	listint_t first_node;
 	size_t freed;
@@ -85,10 +80,8 @@ size_t free_listint_safe(listint_t **h)
 		return (0);
 	first_node = **h;
 	loop_start = my_find_listint_loop(&first_node);
-	if (loop_start == NULL)
-		in_loop = 1;
 
-	freed = free_list_section(*h, loop_start, in_loop);
+	freed = free_list_section(*h, loop_start);
 	*h = NULL;
 
 	return (freed);
