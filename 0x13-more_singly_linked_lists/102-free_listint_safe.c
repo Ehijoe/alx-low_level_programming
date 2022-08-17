@@ -2,10 +2,10 @@
 #include <stdio.h>
 
 /**
- * my_find_listint_loop - Find the first node in a linked list to form a cycle
+ * my_find_listint_loop - Find the last node in a linked list that has a cycle
  * @head: A pointer to the first node of the linked list
  *
- * Return: A pointer to the first node of the cycle or NULL if there is none
+ * Return: A pointer to the last node or NULL if there is no cycle
  */
 listint_t *my_find_listint_loop(listint_t *head)
 {
@@ -30,7 +30,7 @@ listint_t *my_find_listint_loop(listint_t *head)
 
 	if (slow->next == head)
 	{
-		return (head);
+		return (slow);
 	}
 	else
 	{
