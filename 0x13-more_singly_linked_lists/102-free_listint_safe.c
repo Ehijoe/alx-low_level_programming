@@ -42,7 +42,6 @@ listint_t *my_find_listint_loop(listint_t *head)
  * free_list_section - Frees a section of a linked list
  * @start: The first node of the list
  * @end: What comes after the last node
- * @looped: Whether a cycle has been reached
  *
  * Return: The number of nodes freed
  */
@@ -54,8 +53,8 @@ size_t free_list_section(listint_t *start, listint_t *end)
 		return (0);
 	if (start->next == end)
 	{
-	       	free(start);
-       		return (1);
+		free(start);
+		return (1);
 	}
 	freed = (1 + free_list_section(start->next, end));
 	free(start);
