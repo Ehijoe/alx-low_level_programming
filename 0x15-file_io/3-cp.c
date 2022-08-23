@@ -9,7 +9,7 @@
 	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", (filename))
 
 #define WRITE_ERR(filename)						\
-	dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", (filename))
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", (filename))
 
 /**
  * close_files - Close the files used by cp
