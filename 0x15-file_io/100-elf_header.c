@@ -123,7 +123,7 @@ void print_OS(char *header)
 		os = "UNIX - NetBSD";
 		break;
 	case 3:
-		os = "Linux";
+		os = "UNIX - Linux";
 		break;
 	case 6:
 		os = "UNIX - Solaris";
