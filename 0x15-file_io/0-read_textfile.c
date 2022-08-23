@@ -33,8 +33,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		close(fd);
 		return (0);
 	}
-	for (i = 0; i < letters; i++)
-		buffer[i] = '\0';
 	len = read(fd, buffer, letters);
 	if (len == -1 || len == 0)
 	{
@@ -42,7 +40,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		free(buffer);
 		return (0);
 	}
-	written = write(STDIN_FILENO, buffer, len);
+	written = write(STDOUT_FILENO, buffer, len);
 	if (written != len)
 	{
 		close(fd);
