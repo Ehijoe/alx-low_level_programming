@@ -96,14 +96,10 @@ void print_data(char *header)
  */
 void print_version(char *header)
 {
+	printf("  %-35s%d", "Version:", header[6]);
 	if (header[6] == EV_CURRENT)
-	{
-		print_value("Version:", "1 (current)");
-	}
-	else
-	{
-		printf("  %-35s%d (invalid)\n", "Version:", header[6]);
-	}
+		printf("(current)");
+	printf("\n");
 }
 
 /**
