@@ -96,7 +96,7 @@ void print_data(char *header)
  */
 void print_version(char *header)
 {
-	if (header[6] == 1)
+	if (header[6] == EV_CURRENT)
 	{
 		print_value("Version:", "1 (current)");
 	}
