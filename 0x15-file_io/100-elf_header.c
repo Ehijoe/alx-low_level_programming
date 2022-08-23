@@ -25,7 +25,7 @@ void check_magic(char *header)
 	int i;
 	char magic[] = "aELF";
 
-	magic[0] = '\x7f';
+	magic[0] = ELFMAG0;
 	for (i = 0; i < 4; i++)
 	{
 		if (header[i] != magic[i])
@@ -53,11 +53,11 @@ void check_magic(char *header)
  */
 void print_class(char *header)
 {
-	if (header[4] == 2)
+	if (header[EI_CLASS] == ELFCLASS64)
 	{
 		print_value("Class:", "ELF64");
 	}
-	else if (header[4] == 1)
+	else if (header[EI_CLASS] == ELFCLASS32)
 	{
 		print_value("Class:", "ELF32");
 	}
@@ -75,11 +75,11 @@ void print_data(char *header)
 {
 	char *data;
 
-	if (header[5] == 2)
+	if (header[EI_DATA] == ELFDATA2MSB)
 	{
 		data = "big";
 	}
-	else if (header[5] == 1)
+	else if (header[EI_DATA] == ELFDATA2LSB)
 	{
 		data = "little";
 	}
@@ -96,8 +96,8 @@ void print_data(char *header)
  */
 void print_version(char *header)
 {
-	printf("  %-35s%d", "Version:", header[6]);
-	if (header[6] == EV_CURRENT)
+	printf("  %-35s%d", "Version:", header[EI_VERSION]);
+	if (header[EI_VERSION] == EV_CURRENT)
 		printf("(current)");
 	printf("\n");
 }
@@ -110,19 +110,28 @@ void print_OS(char *header)
 {
 	char *os;
 
-	switch (header[7])
+	switch (header[EI_OSABI])
 	{
-	case 0:
+	case ELFOSABI_SYSV:
 		os = "UNIX - System V";
 		break;
-	case 2:
+	case ELFOSABI_NETBSD:
 		os = "UNIX - NetBSD";
 		break;
-	case 3:
+	case ELFOSABI_HPUX:
+		os = "HP-UX";
+		break;
+	case ELFOSABI_LINUX:
 		os = "UNIX - Linux";
 		break;
-	case 6:
+	case ELFOSABI_SOLARIS:
 		os = "UNIX - Solaris";
+		break;
+	case ELFOSABI_FREEBSD:
+		os = "UNIX - FreeBSD";
+		break;
+	case ELFOSABI_ARM:
+		os = "ARM";
 		break;
 	default:
 		printf("  %-35s\n", "OS/ABI:");
@@ -138,18 +147,24 @@ void print_OS(char *header)
 void print_type(char *header)
 {
 	char *type;
-	int endian = header[5] - 1;
+	int big_endian = (header[EI_DATA] == ELFCLASS64);
 
 	switch (header[16 + endian])
 	{
-	case ET_NONE:
-		type = "Unknown";
+	case ET_CORE:
+		type = "CORE (A core file)";
 		break;
 	case ET_EXEC:
 		type = "EXEC (Executable file)";
 		break;
 	case ET_DYN:
 		type = "DYN (Shared object file)";
+		break;
+	case ET_REL:
+		type = "REL (A relocatable file)";
+		break;
+	case ET_NONE:
+		type = "NONE (An unknown type)";
 		break;
 	default:
 		type = "Unknown";
@@ -169,7 +184,7 @@ void print_entry(char *header, int bytes)
 	unsigned long int p;
 
 	p = 0;
-	if (header[5] == 2)
+	if (header[EI_DATA] == ELFCLASS64)
 	{
 		for (i = 0; i < bytes; i++)
 		{
