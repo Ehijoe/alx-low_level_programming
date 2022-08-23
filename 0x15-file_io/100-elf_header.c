@@ -149,7 +149,7 @@ void print_type(char *header)
 	char *type;
 	int big_endian = (header[EI_DATA] == ELFCLASS64);
 
-	switch (header[16 + endian])
+	switch (header[16 + big_endian])
 	{
 	case ET_CORE:
 		type = "CORE (A core file)";
