@@ -237,5 +237,6 @@ int main(int argc, char **argv)
 		print_entry(header, 4);
 	}
 
+	close(fd);
 	return (0);
 }
