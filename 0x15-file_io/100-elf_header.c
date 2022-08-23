@@ -129,7 +129,7 @@ void print_OS(char *header)
 		os = "UNIX - Solaris";
 		break;
 	default:
-		printf("  %-35s\n", "OS/ABI:", header[7]);
+		printf("  %-35s\n", "OS/ABI:");
 		return;
 	}
 	print_value("OS/ABI:", os);
