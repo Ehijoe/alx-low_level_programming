@@ -11,26 +11,14 @@
 int main(void)
 {
 	dlistint_t *head;
-	dlistint_t *new;
-	dlistint_t hello = {8, NULL, NULL};
-	size_t n;
 
-	head = &hello;
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
-	{
-		dprintf(2, "Error: Can't malloc\n");
-		return (EXIT_FAILURE);
-	}
-	new->n = 9;
-	head->prev = new;
-	new->next = head;
-	new->prev = NULL;
-	head = new;
-	n = print_dlistint(head);
-	printf("-> %lu elements\n", n);
+	head = NULL;
+	add_dnodeint(&head, 4);
+	add_dnodeint(&head, 3);
+	add_dnodeint(&head, 1);
 	add_dnodeint(&head, 0);
-	add_dnodeint_end(&head, 1024);
+	add_dnodeint_end(&head, 5);
+	insert_dnodeint_at_index(&head, 7, 2);
 	print_dlistint(head);
 	printf("-> %lu elements\n", dlistint_len(head));
 	free_dlistint(head);
