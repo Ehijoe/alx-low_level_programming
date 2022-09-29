@@ -33,6 +33,6 @@ int main(void)
 	add_dnodeint_end(&head, 1024);
 	print_dlistint(head);
 	printf("-> %lu elements\n", dlistint_len(head));
-	free(new);
+	free_dlistint(head);
 	return (EXIT_SUCCESS);
 }
