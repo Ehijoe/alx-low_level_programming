@@ -30,6 +30,7 @@ int main(void)
 	n = print_dlistint(head);
 	printf("-> %lu elements\n", n);
 	add_dnodeint(&head, 0);
+	add_dnodeint_end(&head, 1024);
 	print_dlistint(head);
 	printf("-> %lu elements\n", dlistint_len(head));
 	free(new);
