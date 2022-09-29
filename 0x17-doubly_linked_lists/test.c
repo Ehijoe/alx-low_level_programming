@@ -29,6 +29,8 @@ int main(void)
 	head = new;
 	n = print_dlistint(head);
 	printf("-> %lu elements\n", n);
+	add_dnodeint(&head, 0);
+	print_dlistint(head);
 	printf("-> %lu elements\n", dlistint_len(head));
 	free(new);
 	return (EXIT_SUCCESS);
