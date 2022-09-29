@@ -6,6 +6,8 @@
  * @h: Pointer to the start of the list
  * @idx: Index to insert at
  * @n: The value to insert
+ *
+ * Return: The newly inserted node or NULL on error
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
@@ -25,6 +27,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 	rest_of_list = prev->next;
 	new = add_dnodeint(&rest_of_list, n);
+	if (new == NULL)
+		return (NULL);
 	prev->next = new;
 	new->prev = prev;
 	return (new);
