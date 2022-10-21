@@ -13,6 +13,8 @@ void free_bucket(hash_node_t *bucket)
 		return;
 
 	free_bucket(bucket->next);
+	free(bucket->key);
+	free(bucket->value);
 	free(bucket);
 }
 
@@ -31,5 +33,6 @@ void hash_table_delete(hash_table_t *ht)
 	{
 		free_bucket(ht->array[i]);
 	}
+	free(ht->array);
 	free(ht);
 }
