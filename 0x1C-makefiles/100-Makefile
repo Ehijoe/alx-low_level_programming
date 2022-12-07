@@ -16,10 +16,11 @@ clean:
 	$(RM) *~
 
 oclean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(NAME)
 
 fclean:
-	$(RM) *~ $(OBJ) $(NAME)
+	$(MAKE) clean
+	$(MAKE) oclean
 
 re:
 	$(RM) *.o
